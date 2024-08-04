@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context crossContext="true">
+ 
+ 	<Resource name="" 
+ 			  auth="Container"
+			  type="javax.sql.DataSource" 
+			  minIdle="20" 
+			  maxIdle="100"
+			  maxWait="30000"
+			  username="" 
+			  password=""
+			  driverClassName=""
+			  url="" />
+</Context>

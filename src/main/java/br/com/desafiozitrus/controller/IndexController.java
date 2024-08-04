@@ -60,8 +60,8 @@ public class IndexController extends HttpServlet {
 				salvarAutorizacao(request, response);
 				break;
 				
-			case "autorizar":
-				listAutAjax(request, response);
+			case "listAut":
+				listAut(request, response);
 				break;
 				
 			} 
@@ -78,9 +78,9 @@ public class IndexController extends HttpServlet {
 	
 	private void listarAutorizacoes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		
-		List<Solicitacao> list = solicitacaoDAO.listarSolicitacoes();
-		
-		request.setAttribute("listaSolicitacoes", list);
+		//Metodo para carregar table
+		//List<Solicitacao> list = solicitacaoDAO.listarSolicitacoes();		
+		//request.setAttribute("listaSolicitacoes", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("publica/listar-autorizacoes.jsp");
 		dispatcher.forward(request, response);
@@ -147,7 +147,9 @@ public class IndexController extends HttpServlet {
 		
 	}
 	
-	    private void listAutAjax(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    private void listAut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	
+	    	//Metodo Ajax
 	    	
 	        List<Solicitacao> listaSolicitacoes = solicitacaoDAO.listarSolicitacoes();
 

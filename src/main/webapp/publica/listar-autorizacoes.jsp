@@ -12,8 +12,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/bootstrap-5.1.3-dist/css/bootstrap.min.css"
 	rel="stylesheet" />
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/jquery-3.6.0-dist/jquery-3.6.0.min.js"></script>
+<!-- <script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/jquery-3.6.0-dist/jquery-3.6.0.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
 
@@ -22,7 +23,10 @@
 
 	<jsp:include page="/publica/publica.jsp"></jsp:include>
 
-	<div class="container">
+	
+	<!-- Tabela sem Ajax -->
+	
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col">
 				<h2>Lista de autorizações</h2>
@@ -51,17 +55,13 @@
 				</table>
 			</div>
 		</div>
-	</div>
-</body>
-
-<!--   
-<body>
-  <div class="container">
+	</div>-->
+	
+	<div class="container">
     <div class="row">
       <div class="col">
         <h2>Lista de autorizações</h2>
-        <button id="loadData" class="btn btn-primary">Carregar Autorizações</button>
-        <table class="table">
+        <table class="table table-success table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -72,23 +72,24 @@
             </tr>
           </thead>
           <tbody id="solicitacao">
-  
+           
           </tbody>
         </table>
+        <button id="loadData" class="btn btn-primary">Carregar Autorizações</button>
       </div>
     </div>
-  </div> 
+  </div>
 
   <script>
     $(document).ready(function() {
       $('#loadData').click(function() {
         $.ajax({
-          url: 'http://localhost:8080/desafio-zitrus/publica?acao=autorizar', // Endpoint do seu servidor
+          url: 'publica?acao=listAut', 
           type: 'GET',
           dataType: 'json',
           success: function(data) {
-            var tabelaAutorizacoes = $('#tabelaAutorizacoes');
-            tabelaAutorizacoes.empty(); // Limpa a tabela antes de adicionar novos dados
+            var listaSolicitacoes = $('#solicitacao');
+            listaSolicitacoes.empty(); 
 
             $.each(data, function(index, solicitacao) {
               var row = $('<tr>');
@@ -97,15 +98,15 @@
               row.append($('<td>').text(solicitacao.procedimento));
               row.append($('<td>').text(solicitacao.idade));
               row.append($('<td>').text(solicitacao.sexo));
-              tabelaAutorizacoes.append(row);
+              listaSolicitacoes.append(row);
             });
           },
           error: function(xhr, status, error) {
-            console.error('Erro ao carregar autorizações:', error);
+            console.error('Erro ao carregar solicitações:', error);
           }
         });
       });
     });
-  </script> 
-</body> -->
+  </script>
+</body>
 </html>

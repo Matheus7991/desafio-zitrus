@@ -19,23 +19,23 @@ Crie a tabela necessária para a aplicação. Script:
 #### JBoss
 
 1. Clone o repositório:
-   - git clone https://github.com/Matheus7991/desafio-zitrus.git    
+   - git clone https://github.com/Matheus7991/desafio-zitrus.git
 
-2. Compile o projeto e empacote como WAR:
+2. Configure o arquivo context.xml com a conexão do banco de dados e o campo Resource:
+   - context.xml-> desafio-zitrus\src\main\webapp\META-INF\context.xml
+   - Conexao    -> desafio-zitrus\src\main\java\br\com\desafiozitrus\dao\util\Conexao.java
+
+3. Compile o projeto e empacote como WAR:
    - mvn clean install
    
 4. Copie o arquivo WAR para o diretório desejado do JBoss.
 
-5. Configure o arquivo context.xml com a conexão do banco de dados e o campo Resource:
-   - context.xml-> desafio-zitrus\src\main\webapp\META-INF\context.xml
-   - Conexao    -> desafio-zitrus\src\main\java\br\com\desafiozitrus\dao\util\Conexao.java
-
-6. Inicie o JBoss:
+5. Inicie o JBoss:
    - cd /path/to/jboss
     ./standalone.sh   # Linux/Mac
     standalone.bat    # Windows
 
-7. Acesse a aplicação:
+6. Acesse a aplicação:
    - Abra um navegador e acesse http://localhost:8080/desafio-zitrus.
 
 ##### Eclipse
@@ -54,10 +54,10 @@ Crie a tabela necessária para a aplicação. Script:
    - context.xml-> desafio-zitrus\src\main\webapp\META-INF\context.xml
    - Conexao    -> desafio-zitrus\src\main\java\br\com\desafiozitrus\dao\util\Conexao.java
 
-6. Inicie o servidor:
+5. Inicie o servidor:
     - Clique com o botão direito no servidor na aba **Servers** e selecione **Start**.
 
-7. Acesse a aplicação:
+6. Acesse a aplicação:
     - Abra um navegador e acesse http://localhost:8080/desafio-zitrus.
 
 
